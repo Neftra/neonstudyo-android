@@ -1,0 +1,11 @@
+{
+  "appId": "com.neonstudyo.akademi",
+  "appName": "NeonStüdyo Akademi",
+  "webDir": "www",
+  "backgroundColor": "#140629",
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": false,
+    "webContentsDebuggingEnabled": false
+  }
+}
