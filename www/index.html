@@ -854,6 +854,60 @@ html[data-skin="pro"] .schbar a[aria-pressed="true"]{background:var(--c);color:#
 .k3res.ok{background:rgba(125,255,58,.12);border-color:#7dff3a}.k3res b{font-size:1.3rem;font-family:var(--f-display)}
 .k3map{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}.k3map div{display:grid;gap:2px;font-size:.8rem}.k3map b{color:var(--lime,#7dff3a);font-family:'JetBrains Mono',monospace;font-size:.78rem}
 
+/* ===== UX v21 ===== */
+.tabs{grid-template-columns:repeat(4,1fr)!important}
+.schbarslot{display:none!important}
+.ptitle{display:none;font-family:var(--f-display);font-weight:700;font-size:1.05rem;line-height:1.15;color:var(--hdrtxt,#fff);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1}
+body.subpage .top .logo,body.subpage .top .sub{display:none}
+body.subpage .ptitle{display:block}
+.top .back{flex:none;min-width:40px;text-align:center;font-size:1.1rem}
+.uxhello{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;margin-top:4px}
+.uxhello h1{font-size:clamp(1.8rem,8vw,2.4rem);line-height:1.05;margin-top:2px}
+.uxlvl{flex:none;display:grid;justify-items:end;text-decoration:none;padding:7px 12px;border-radius:14px;border:2px solid #ff2bd6;box-shadow:0 0 14px rgba(255,43,214,.45);background:rgba(255,43,214,.08)}
+.uxlvl b{font-family:var(--f-display);color:#fff;font-size:1rem}.uxlvl span{font-size:.7rem;color:#ffc6f1;font-weight:600}
+.uxxp{height:10px;border-radius:99px;background:rgba(255,255,255,.1);margin-top:14px;overflow:hidden}
+.uxxp i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#00eaff,#ff2bd6);box-shadow:0 0 10px #ff2bd6}
+.uxxpt{display:flex;justify-content:space-between;font:600 .7rem 'JetBrains Mono',monospace;color:var(--sub);margin-top:5px}
+.uxstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.uxstats div{display:grid;gap:2px;padding:10px 8px;border-radius:14px;text-align:center;border:2px solid var(--c);background:rgba(0,0,0,.18)}
+.uxstats b{font-family:var(--f-display);font-size:1.15rem;color:#fff}.uxstats span{font-size:.7rem;color:var(--sub)}
+.uxsec{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 8px;font-family:var(--f-display);font-weight:700;font-size:1.05rem;color:var(--txt)}
+.uxsec span{font:600 .7rem 'JetBrains Mono',monospace;color:var(--sub)}
+.uxsub{margin:-4px 0 8px;font-size:.8rem;color:var(--sub)}
+.uxhero{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:14px;border-radius:20px;text-decoration:none;color:var(--txt);border:2px solid var(--c);background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(0,0,0,.25)),#1d0838;box-shadow:0 0 20px var(--c)}
+.uxhero>div{display:grid;gap:3px;min-width:0}
+.uxtag{font:600 .66rem 'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.uxhero b{font-family:var(--f-display);font-size:1.12rem;line-height:1.2;color:#fff}
+.uxhero small{font-size:.76rem;color:var(--sub)}
+.uxgo{grid-column:1/-1;justify-self:stretch;text-align:center;padding:11px;border-radius:12px;background:var(--c);color:#0b0618;font-weight:800;font-family:var(--f-display);font-size:1rem}
+.uxrow{display:grid;grid-template-columns:auto 1fr auto auto;gap:10px;align-items:center;padding:11px 12px;border-radius:14px;text-decoration:none;color:var(--txt);border:1.5px solid rgba(255,255,255,.12);border-left:4px solid var(--c);background:rgba(255,255,255,.04);margin-top:8px}
+.uxrow>i{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c)}
+.uxrow>div{display:grid;gap:1px;min-width:0}
+.uxrow b{font-size:.95rem;font-weight:700;color:#fff;line-height:1.25}.uxrow span{font-size:.72rem;color:var(--sub)}
+.uxrow small{font:700 .72rem 'JetBrains Mono',monospace;color:var(--c)}
+.uxrow em{font-style:normal;font-size:1.4rem;color:var(--c);line-height:1}
+.uxrow.sm{padding:9px 10px}
+.uxic{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:rgba(0,0,0,.25);color:var(--c)}
+.uxic svg{width:22px;height:22px}
+.uxlist{display:grid}
+.uxdaily{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px;border-radius:18px;text-decoration:none;border:2px dashed var(--c);background:rgba(0,0,0,.2)}
+.uxdaily div{display:grid;gap:2px}.uxdaily b{color:#fff;font-family:var(--f-display);font-size:1.02rem}.uxdaily span{font-size:.78rem;color:var(--sub)}
+.uxdaily em{font-style:normal;flex:none;padding:8px 14px;border-radius:99px;background:var(--c);color:#0b0618;font-weight:800}
+.uxnote{margin:12px 2px 0;font-size:.8rem;color:var(--sub)}.uxnote.ok{color:#7dff3a}
+.uxsearch{position:relative}
+.uxres{display:grid;margin-top:4px;max-height:60vh;overflow:auto}
+.uxpick{display:grid;gap:8px;padding:14px;border-radius:18px;border:2px solid #00eaff;background:rgba(0,234,255,.06)}
+.uxpick b{color:#fff;font-family:var(--f-display)}.uxpick span{font-size:.8rem;color:var(--sub)}
+.uxdaws{display:flex;flex-wrap:wrap;gap:8px}
+.uxdaws button{padding:9px 14px;border-radius:99px;border:2px solid var(--c);background:rgba(0,0,0,.25);color:#fff;font-weight:700;cursor:pointer}
+.uxdaws.big{display:grid;grid-template-columns:1fr 1fr}.uxdaws.big button{padding:13px 10px;border-radius:14px}
+.uxlink{justify-self:start;margin-top:10px;background:none;border:0;padding:4px 0;color:#00eaff;font-weight:700;font-size:.85rem;text-decoration:none;cursor:pointer}
+.uxring{flex:none}
+html[data-skin="light"] .uxhero,html[data-skin="light"] .uxrow,html[data-skin="light"] .uxdaily,html[data-skin="light"] .uxstats div{background:#fff}
+html[data-skin="light"] .uxhero b,html[data-skin="light"] .uxrow b,html[data-skin="light"] .uxdaily b,html[data-skin="light"] .uxstats b,html[data-skin="light"] .uxlvl b,html[data-skin="light"] .uxpick b{color:#170a3d}
+html[data-skin="light"] .uxring text{fill:#170a3d}
+html[data-skin="pro"] .uxhero{background:#2c303b;box-shadow:none}
+
 </style>
 </head>
 <body>
@@ -863,22 +917,15 @@ html[data-skin="pro"] .schbar a[aria-pressed="true"]{background:var(--c);color:#
   <a href="#home" class="back" id="backBtn" hidden>← Geri</a>
   <div class="logo"><b>NEON</b><span>STÜDYO</span></div>
   <div class="sub">AKADEMİ</div>
+  <div class="ptitle" id="pageT"></div>
 </header>
 
 <main class="wrap">
   <!-- HOME -->
-  <section id="v-home" data-view>
-    <div class="hero">
-      <div class="eyebrow">Sıfırdan profesyonel prodüktörlüğe</div>
-      <div style="display:flex;align-items:center;gap:8px"><div id="streakT"></div></div>
-      <h1 id="helloT">Stüdyonun her <em>potunu</em> öğren.</h1>
-    </div>
-    <a class="nextcard" id="nextCard" href="#dersler"></a>
-    <a class="nextcard" id="nextCb" href="#cubase" style="--c:#4fc3ff;margin-top:12px"></a>
-    <p class="hometip">Derslere, laboratuvarlara, sözlüğe ve profiline alttaki menüden ulaşırsın.</p>
-  </section>
+  <section id="v-home" data-view><div id="homeBody"></div></section>
 
   <!-- LESSONS LIST -->
+  <section id="v-ogren" data-view hidden><div id="ogrenBody"></div></section>
   <section id="v-dersler" data-view hidden>
     <div class="schbarslot"></div>
     <div class="eyebrow">Müfredat</div>
@@ -889,9 +936,9 @@ html[data-skin="pro"] .schbar a[aria-pressed="true"]{background:var(--c);color:#
 
   <!-- LAB HUB -->
   <section id="v-lab" data-view hidden>
-    <div class="eyebrow">Dokun, çevir, dinle</div>
-    <h2 style="margin:4px 0 4px">Laboratuvarlar</h2>
-    <p style="color:var(--muted);font-size:.9rem">Gerçek ekipmanların birebir, sesli simülatörleri.</p>
+    <div class="eyebrow">Dinle · dokun · uygula</div>
+    <h2 style="margin:4px 0 4px">Pratik</h2>
+    <p style="color:var(--muted);font-size:.9rem">Öğrendiklerini sesli simülatörler ve kulak oyunlarıyla pekiştir.</p>
     <div id="labGroups"></div>
   </section>
 
@@ -1140,10 +1187,9 @@ html[data-skin="pro"] .schbar a[aria-pressed="true"]{background:var(--c);color:#
 </defs></svg>
 
 <nav class="tabs" id="tabs">
-  <a href="#home" data-tab="home" style="--c:var(--cyan)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg>Ana sayfa</a>
-  <a href="#dersler" data-tab="dersler" style="--c:var(--pink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18l4-4 4 3 8-9"/><circle cx="4" cy="18" r="1.6"/><circle cx="8" cy="14" r="1.6"/><circle cx="12" cy="17" r="1.6"/><circle cx="20" cy="8" r="1.6"/></svg>Dersler</a>
-  <a href="#lab" data-tab="lab" style="--c:var(--lime)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3v18M12 3v18M18 3v18"/><rect x="3.5" y="13" width="5" height="3" rx="1"/><rect x="9.5" y="6" width="5" height="3" rx="1"/><rect x="15.5" y="10" width="5" height="3" rx="1"/></svg>Lab</a>
-  <a href="#sozluk" data-tab="sozluk" style="--c:var(--amber)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/></svg>Sözlük</a>
+  <a href="#home" data-tab="home" style="--c:var(--cyan)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg>Bugün</a>
+  <a href="#ogren" data-tab="ogren" style="--c:var(--pink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5.5C6.5 4 9.5 4 12 5.5v14C9.5 18 6.5 18 4 19.5z"/><path d="M20 5.5C17.5 4 14.5 4 12 5.5v14c2.5-1.5 5.5-1.5 8 0z"/></svg>Öğren</a>
+  <a href="#lab" data-tab="lab" style="--c:var(--lime)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3v18M12 3v18M18 3v18"/><rect x="3.5" y="13" width="5" height="3" rx="1"/><rect x="9.5" y="6" width="5" height="3" rx="1"/><rect x="15.5" y="10" width="5" height="3" rx="1"/></svg>Pratik</a>
   <a href="#ilerleme" data-tab="ilerleme" style="--c:var(--violet)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Profil</a>
 </nav>
 
@@ -1233,7 +1279,8 @@ function lessonItems(l){
     return `<li class="${done.has(x.id)?'done':''}"><a href="#ders-${x.id}"><i class="dot"></i>${x.t}<span class="tag">${done.has(x.id)?'✓':'Başla'}</span></a></li>`;
   }).join('');
 }
-function renderHome(){
+function renderHome(){ return uxHome(); }
+function renderHomeOld(){
   const sn=streakNow(); $('#streakT').innerHTML=sn?`<span class="streak">Seri: ${sn} gün</span>`:'<span class="streak">Bugün bir ders bitir, seriyi başlat</span>';
   const next=READY.find(id=>!done.has(id)), L=next?LESSONS[next]:null, lv=L?LEVELS[L.lv]:LEVELS[6], n=done.size;
   $('#helloT').innerHTML=userName?`Merhaba, <em>${userName.split(' ')[0].replace(/</g,'')}</em>`:'Stüdyonun her <em>potunu</em> öğren.';
@@ -1251,7 +1298,7 @@ function renderDersler(){
   $('#acc').innerHTML=LEVELS.map(l=>{const s=lvlStats(l),open=accOpen===l.n;return `<div class="acc ${open?'open':''}" style="--c:${COL[l.c]}"><button class="acchead" data-l="${l.n}" aria-expanded="${open}"><span class="badge">${l.n}</span><span class="ah"><b>${l.t}</b><small>${s.d} / ${s.n} ders${s.badge?' · rozet %'+s.badge:''}</small><i><em style="width:${s.n?s.d/s.n*100:0}%"></em></i></span><span class="chev">${open?'−':'+'}</span></button>${open?`<ul class="lessons">${lessonItems(l)}</ul>`:''}</div>`;}).join('');
   $$('#acc .acchead').forEach(b=>b.onclick=()=>{const n=+b.dataset.l;accOpen=accOpen===n?-1:n;renderDersler();});
 }
-function renderLabs(){
+function renderLabsOld(){
   $('#labGroups').innerHTML=LABGROUPS.map(([g,ks])=>`<div class="section-title"><h2>${g}</h2></div><div class="tiles">${ks.map(tileHTML).join('')}</div>`).join('');
 }
 
@@ -2533,7 +2580,7 @@ function renderProgress(){
   const el=$('#progress'); const nLes=LEVELS.reduce((a,l)=>a+l.ls.filter(x=>x.id).length,0), dLes=[...done].filter(id=>LESSONS[id]).length;
   const all=LEVELS.every(l=>badges[l.n]), nb=LEVELS.filter(l=>badges[l.n]).length;
   const stat=(t,v,m,c)=>`<div class="pstat" style="--c:${c}"><b>${v}</b><span>${t}</span>${m!==undefined?`<i><em style="width:${Math.min(100,v/m*100)}%"></em></i>`:''}</div>`;
-  el.innerHTML=`<div class="eyebrow">Profil</div><h2 style="margin:4px 0 12px">İlerleme ve Sertifika</h2>
+  el.innerHTML=`<div class="eyebrow">Profil</div><h2 style="margin:4px 0 12px">İlerleme ve Sertifika</h2>${(()=>{ const xp=uxXP(), L=uxLevel(xp); return `<div class="uxhero" style="--c:#ff2bd6;grid-template-columns:1fr"><div><span class="uxtag">Seviye ${L.lv} · ${L.rank}</span><b>${xp.toLocaleString('tr')} XP</b><small>Sonraki seviyeye ${L.need.toLocaleString('tr')} XP. Ders bitirmek 20, rozet 60, simülatör görevi 15 XP kazandırır.</small></div><div class="uxxp" style="margin-top:4px"><i style="width:${(L.p*100).toFixed(1)}%"></i></div></div>`; })()}
    <div class="card"><label class="eyebrow" for="pName">Sertifikada yazacak adın</label><input class="search" id="pName" maxlength="40" placeholder="Adın Soyadın" value="${userName.replace(/"/g,'&quot;')}"></div>
    <button class="cbtb2" id="onbAgain" style="justify-self:start">Başlangıç rehberini tekrar göster</button>
    <div class="section-title"><h2>Görünüm</h2></div>
@@ -5142,7 +5189,7 @@ function renderKulak2(){
 }
 /* ---------- onboarding ---------- */
 const ONB=[['sifir','Sıfırdan öğrenmek istiyorum','Ses nedir dersinden başla','#ders-l0-1','#2ef2ff'],['kur','Ev stüdyosu kurmak istiyorum','Kurulum sihirbazı ve oda akustiği','#kurulum','#8dff5c'],['cubase','Cubase öğrenmek istiyorum','Cubase Okulu','#cubase','#4fc3ff'],['gitar','Gitarımı kaydetmek istiyorum','Ses kartı ve gitar zinciri','#seskarti','#ffb02e'],['mix','Mix ve mastering öğrenmek istiyorum','Efekt Laboratuvarı ve Seviye 5','#efekt','#ff3fb8'],['daw','Hangi DAW\'ı seçeceğimi bilmiyorum','Yazılım Rehberi','#yazilim','#a66bff']];
-function showOnb(){ const m=$('#onbModal'); m.hidden=false; document.body.style.overflow='hidden';
+function showOnbOld(){ const m=$('#onbModal'); m.hidden=false; document.body.style.overflow='hidden';
   m.innerHTML=`<div class="gsheet onb" style="--c:#ff3fb8" role="dialog" aria-modal="true" aria-label="Hoş geldin"><div class="eyebrow">NeonStüdyo Akademi</div><h2>Hoş geldin!</h2><p class="gdesc">Sıfırdan profesyonel prodüktörlüğe: dersler, sesli laboratuvarlar ve Cubase Okulu. Nereden başlamak istersin?</p>
    <label class="eyebrow" for="onbName">Adın (isteğe bağlı)</label><input class="search" id="onbName" maxlength="40" placeholder="Adın" value="${userName.replace(/"/g,'&quot;')}">
    <div class="onbgrid">${ONB.map(([k,t,d,h,c])=>`<button data-h="${h}" data-k="${k}" style="--c:${c}"><b>${t}</b><span>${d}</span></button>`).join('')}</div><button class="cbx" id="onbSkip" style="justify-self:start">Şimdilik geç</button></div>`;
@@ -5366,7 +5413,7 @@ $('#earB').addEventListener('click',()=>setAB(true));
 
 /* ---------- router ---------- */
 const CBV=['cubase','cbders','cbsim','cbkey','cbkeys'];
-const TOPV=['home','dersler','lab','sozluk','ilerleme'], LABV=['mixdoktor','mixer','daw','efekt','seskarti','sahne','kulak','kablo','ariza','midi','yazilim','kurulum','oda','davulmik','gitar','kulak2','kulak3'];
+const TOPV=['home','ogren','lab','ilerleme'], LABV=['mixdoktor','mixer','daw','efekt','seskarti','sahne','kulak','kablo','ariza','midi','yazilim','kurulum','oda','davulmik','gitar','kulak2','kulak3'];
 function route(){
   const h=(location.hash||'#home').slice(1);
   let view=h;
@@ -5375,8 +5422,8 @@ function route(){
   if(h.startsWith('cb-')||h.startsWith('cbsinav-')) view='cbders';
   if(h.startsWith('cbsim')) view='cbsim';
   if(h.startsWith('okul/')) view=schParse(h).view;
-  if(!TOPV.includes(view)&&!LABV.includes(view)&&!CBV.includes(view)&&!SCHV.includes(view)&&view!=='ders') view='home';
-  const tab=(view==='ders'||CBV.includes(view)||SCHV.includes(view))?'dersler':LABV.includes(view)?'lab':view;
+  if(!TOPV.includes(view)&&!LABV.includes(view)&&!CBV.includes(view)&&!SCHV.includes(view)&&!['dersler','sozluk'].includes(view)&&view!=='ders') view='home';
+  const tab=(view==='ders'||view==='dersler'||view==='sozluk'||CBV.includes(view)||SCHV.includes(view))?'ogren':LABV.includes(view)?'lab':view;
   if(view!=='daw'&&dPlaying) dStopFn();
   if(view!=='ders'){ stopTone(); lbStop(); }
   if(view!=='kulak') stopEar();
@@ -5400,8 +5447,10 @@ function route(){
   curView=view;
   $$('[data-view]').forEach(s=>s.hidden=s.id!=='v-'+view);
   $$('#tabs a').forEach(a=>{ if(a.dataset.tab===tab) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
-  const bb=$('#backBtn'); bb.hidden=TOPV.includes(view); bb.href=view==='ders'?'#dersler':LABV.includes(view)?'#lab':'#home'; bb.textContent=view==='ders'?'← Dersler':LABV.includes(view)?'← Lab':'← Geri'; if(h.startsWith('ariza-')){ bb.href='#ariza'; bb.textContent='← Vakalar'; } if(CBV.includes(view)){ bb.hidden=false; bb.href=view==='cubase'?'#dersler':'#cubase'; bb.textContent=view==='cubase'?'← Dersler':'← Cubase Okulu'; }
-  if(SCHV.includes(view)){ const r=schParse(h), S=SCH[r.sid]; bb.hidden=false; bb.href=view==='okul'?'#dersler':'#okul/'+r.sid; bb.textContent=view==='okul'?'← Dersler':'← '+(S?S.short:'Okul'); }
+  const bb=$('#backBtn'); bb.hidden=TOPV.includes(view); bb.href=view==='ders'?'#dersler':LABV.includes(view)?'#lab':'#home'; bb.textContent=view==='ders'?'← Dersler':LABV.includes(view)?'← Lab':'← Geri'; if(h.startsWith('ariza-')){ bb.href='#ariza'; bb.textContent='← Vakalar'; } if(CBV.includes(view)){ bb.hidden=false; bb.href=view==='cubase'?'#ogren':'#cubase'; }
+  if(view==='dersler'||view==='sozluk'){ bb.hidden=false; bb.href='#ogren'; }
+  if(SCHV.includes(view)){ const r=schParse(h), S=SCH[r.sid]; bb.hidden=false; bb.href=view==='okul'?'#ogren':'#okul/'+r.sid; }
+  bb.textContent='←'; bb.setAttribute('aria-label','Geri');
   if(view==='home'){ renderHome(); if(!load('onb',0)) setTimeout(()=>{ if(curView==='home'&&!load('onb',0)) showOnb(); },250); }
   if(view==='dersler') renderDersler();
   if(view==='lab') renderLabs();
@@ -5430,6 +5479,9 @@ function route(){
   if(view==='gitar') renderGitar();
   if(view==='kulak2'){ if(!K2.ans){ const o=K2M[K2.mode][1]; K2.ans=o[Math.floor(Math.random()*o.length)][0]; } renderKulak2(); }
   if(view==='kulak3') renderKulak3();
+  if(view==='ogren') uxOgren();
+  if(view==='ders') save('lastlearn','aka'); if(view==='cbders') save('lastlearn','cubase'); if(view==='okulders') save('lastlearn',schParse(h).sid);
+  uxTitle(view,h);
   if(view==='cbsim') cbSimOpen(h.startsWith('cbsim-')?h.slice(6):null);
 }
 
@@ -7468,6 +7520,97 @@ function renderKulak3(){ const el=$('#k3Body'); if(!el) return; if(!K3.ans) k3Ne
   k3Curve();
 }
 function k3Tip(f){ return f<150?'Bu bölge bası ve kick\'in gövdesini taşır.':f<450?'Bu bölge fazlaysa ses çamurlu ve boğuk olur.':f<1200?'Bu bölge burun ve telefon sesini verir.':f<4500?'Bu bölge varlık ve netlik verir; fazlası tırmalar.':f<9000?'Bu bölge parlaklık ve "s" seslerinin yeridir.':'Bu bölge "hava" ve ışıltı katar.'; }
+
+/* ===== UX v21: sade bilgi mimarisi, Bugün / Öğren / Pratik / Profil ===== */
+const UXDAW=[['cubase','Cubase','#4fc3ff'],['fl','FL Studio','#ff8a00'],['ab','Ableton Live','#d4ff3a'],['pt','Pro Tools','#b48cff'],['rp','REAPER','#38e0a0'],['sp','Studio Pro','#ff4d6d']];
+function uxDawInfo(k){ if(k==='cubase'){ const D=cbDone, N=CBALL.length, n=CBALL.filter(id=>D.has(id)).length, nx=CBALL.find(id=>!D.has(id)); return {k,name:'Cubase',col:'#4fc3ff',n,N,href:'#cubase',next:nx?{t:CBL[nx].t,href:'#cb-'+nx,mod:'Modül '+cbLessonMod(nx).n}:null}; }
+  const S=SCH[k]; if(!S) return null; const D=schSet(k), N=S.ALL.length, n=S.ALL.filter(id=>D.has(id)).length, nx=S.ALL.find(id=>!D.has(id)); return {k,name:S.name,col:S.col,n,N,href:'#okul/'+k,next:nx?{t:S.L[nx].t,href:'#okul/'+k+'/d/'+nx,mod:'Modül '+schMod(S,nx).n}:null}; }
+function uxAka(){ const N=TOTAL, n=done.size, nx=READY.find(id=>!done.has(id)), L=nx?LESSONS[nx]:null; return {n,N,col:COL[(nx?LEVELS[L.lv]:LEVELS[6]).c],next:nx?{t:L.t,href:'#ders-'+nx,mod:'Seviye '+L.lv}:null}; }
+function uxXP(){ let x=done.size*20+cbDone.size*20+SCHORDER.reduce((a,k)=>a+(schDone[k]||[]).length*20,0);
+  x+=Object.keys(badges).length*60+Object.keys(cbBadges).length*60+SCHORDER.reduce((a,k)=>a+Object.keys(schBadges[k]||{}).length*60,0);
+  x+=(mxDone.size+dawDone.size+efDone.size+skDone.size+dmDone.size+gzDone.size+Object.keys(arDone).length)*15;
+  try{ ['flsim','absim','ptsim','rpsim','spsim'].forEach(k=>{ const s=load(k,null); if(s&&s.done) x+=Object.keys(s.done).length*15; }); }catch(e){}
+  x+=(earSt.best||0)*5+(K2.best||0)*5+(K3.best||0); return x; }
+const UXRANK=['Çırak','Stüdyo Asistanı','Kayıt Teknisyeni','Ses Mühendisi','Mix Mühendisi','Prodüktör','Kıdemli Prodüktör','Mastering Ustası','Stüdyo Efsanesi'];
+function uxLevel(xp){ const lv=Math.floor((Math.sqrt(1+8*xp/150)-1)/2)+1, base=150*(lv-1)*lv/2, nxt=150*lv*(lv+1)/2; return {lv,rank:UXRANK[Math.min(lv-1,UXRANK.length-1)],p:(xp-base)/(nxt-base),need:nxt-xp}; }
+function uxWeek(){ const days=new Set(streak.days||[]); let c=0; for(let i=0;i<7;i++) if(days.has(dk(Date.now()-i*864e5))) c++; return c; }
+const UXDAILY=[['kulak3','EQ kulağı','Gizli EQ\'yu bul: 3 tur oyna','#00eaff'],['kulak','Frekans kulağı','Hangi frekans yükseldi? Seri yap','#7dff3a'],['kulak2','Mix kulağı','Kompresör, reverb, pan farkını duy','#ffb300'],['key','Kısayol sprinti','60 saniyede DAW kısayolları','#ff2bd6'],['mixer','Mixer görevi','Kanal şeridinde bir görevi bitir','#9d5cff'],['ariza','Arıza vakası','Bir stüdyo sorununu teşhis et','#ff3366']];
+function uxDaily(){ const d=new Date(), i=(d.getFullYear()*372+d.getMonth()*31+d.getDate())%UXDAILY.length, [k,t,s,c]=UXDAILY[i]; const daw=load('daw',null);
+  let href='#'+k; if(k==='key') href=daw&&daw!=='cubase'&&SCH[daw]?'#okul/'+daw+'/t':'#cbkey'; return {t,s,c,href}; }
+function uxRing(p,c,sz){ sz=sz||64; const r=sz/2-6, C=2*Math.PI*r; return `<svg class="uxring" width="${sz}" height="${sz}" viewBox="0 0 ${sz} ${sz}" aria-hidden="true"><circle cx="${sz/2}" cy="${sz/2}" r="${r}" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="6"/><circle cx="${sz/2}" cy="${sz/2}" r="${r}" fill="none" stroke="${c}" stroke-width="6" stroke-linecap="round" transform="rotate(-90 ${sz/2} ${sz/2})" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-Math.min(1,p))).toFixed(1)}"/><text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-size="${sz/4.6}" font-family="JetBrains Mono,monospace" font-weight="700" fill="#fff">${Math.round(p*100)}%</text></svg>`; }
+function uxPrimary(){ const last=load('lastlearn','aka'), daw=load('daw',null), aka=uxAka();
+  if(last!=='aka'){ const I=uxDawInfo(last); if(I&&I.next) return {title:I.name+' Okulu',col:I.col,p:I.n/I.N,next:I.next,meta:`${I.n} / ${I.N} ders`}; }
+  if(aka.next) return {title:'Stüdyo Akademisi',col:aka.col,p:aka.n/aka.N,next:aka.next,meta:`${aka.n} / ${aka.N} ders`};
+  const I=uxDawInfo(daw||'cubase'); return {title:I.name+' Okulu',col:I.col,p:I.n/I.N,next:I.next||{t:'Bütün dersler bitti',href:I.href,mod:''},meta:`${I.n} / ${I.N} ders`}; }
+function uxHome(){ const el=$('#homeBody'); if(!el) return; const xp=uxXP(), L=uxLevel(xp), sn=streakNow(), wk=uxWeek(), P=uxPrimary(), D=uxDaily(), name=userName?userName.split(' ')[0].replace(/</g,''):'';
+  const aka=uxAka(), daw=load('daw',null), DI=uxDawInfo(daw||'cubase'), last=load('lastlearn','aka');
+  const second=last==='aka'?(DI&&DI.next?{title:DI.name+' Okulu',col:DI.col,next:DI.next}:null):(aka.next?{title:'Stüdyo Akademisi',col:aka.col,next:aka.next}:null);
+  el.innerHTML=`<div class="uxhello"><div><div class="eyebrow">${name?'Merhaba,':'Hoş geldin'}</div><h1>${name||'Prodüktör'}</h1></div><a class="uxlvl" href="#ilerleme"><b>Sv. ${L.lv}</b><span>${L.rank}</span></a></div>
+   <div class="uxxp"><i style="width:${(L.p*100).toFixed(1)}%"></i></div><div class="uxxpt"><span>${xp.toLocaleString('tr')} XP</span><span>Sonraki seviyeye ${L.need.toLocaleString('tr')} XP</span></div>
+   <div class="uxstats"><div style="--c:#ff8a00"><b>🔥 ${sn}</b><span>gün seri</span></div><div style="--c:#7dff3a"><b>${wk}/5</b><span>bu hafta</span></div><div style="--c:#00eaff"><b>${done.size+cbDone.size+SCHORDER.reduce((a,k)=>a+(schDone[k]||[]).length,0)}</b><span>ders bitti</span></div></div>
+   <div class="uxsec">Kaldığın yer</div>
+   <a class="uxhero" href="${P.next.href}" style="--c:${P.col}">${uxRing(P.p,P.col,70)}<div><span class="uxtag">${P.title}${P.next.mod?' · '+P.next.mod:''}</span><b>${P.next.t}</b><small>${P.meta}</small></div><span class="uxgo">Devam et</span></a>
+   ${second?`<a class="uxrow" href="${second.next.href}" style="--c:${second.col}"><i></i><div><span>${second.title}</span><b>${second.next.t}</b></div><em>›</em></a>`:''}
+   <div class="uxsec">Günün egzersizi <span>5 dk</span></div>
+   <a class="uxdaily" href="${D.href}" style="--c:${D.c}"><div><b>${D.t}</b><span>${D.s}</span></div><em>Başla</em></a>
+   ${wk<5?`<p class="uxnote">Haftalık hedef: 5 gün çalış. ${5-wk} gün kaldı; her gün bir ders veya egzersiz yeter.</p>`:`<p class="uxnote ok">Bu haftanın hedefini tamamladın. Harika gidiyorsun!</p>`}`;
+}
+/* Öğren merkezi */
+let UXIDX=null;
+function uxIndex(){ if(UXIDX) return UXIDX; const a=[];
+  READY.forEach(id=>{ const L=LESSONS[id]; a.push({t:L.t,s:'Akademi · Seviye '+L.lv,h:'#ders-'+id,c:COL[LEVELS[L.lv].c]}); });
+  CBALL.forEach(id=>a.push({t:CBL[id].t,s:'Cubase Okulu',h:'#cb-'+id,c:'#4fc3ff'}));
+  SCHORDER.forEach(k=>{ const S=SCH[k]; S.ALL.forEach(id=>a.push({t:S.L[id].t,s:S.name+' Okulu',h:'#okul/'+k+'/d/'+id,c:S.col})); });
+  TERMS.forEach((t,i)=>a.push({t:t[0]+' · '+t[1],s:'Sözlük',h:null,term:i,c:'#ffb300'}));
+  TILES.forEach(t=>{ if(t.k!=='sozluk'&&!a.some(x=>x.h===t.href)) a.push({t:t.t,s:'Pratik · '+t.s,h:t.href,c:COL[t.c]}); });
+  a.forEach(x=>x.n=norm(x.t+' '+x.s)); UXIDX=a; return a; }
+function uxSearch(q){ const box=$('#uxRes'); if(!box) return; q=norm(q.trim()); if(q.length<2){ box.innerHTML=''; box.hidden=true; return; }
+  const ws=q.split(/\s+/), r=uxIndex().filter(x=>ws.every(w=>x.n.includes(w))).slice(0,30); box.hidden=false;
+  box.innerHTML=r.length?r.map((x,i)=>`<a class="uxrow sm" ${x.h?`href="${x.h}"`:`href="#ogren" data-term="${x.term}"`} style="--c:${x.c}"><i></i><div><span>${x.s}</span><b>${x.t}</b></div><em>›</em></a>`).join(''):'<p class="uxnote">Sonuç yok. Başka bir kelime dene (ör. "sidechain", "kayıt", "808").</p>';
+  $$('#uxRes [data-term]').forEach(b=>b.onclick=e=>{ e.preventDefault(); openTerm(+b.dataset.term); }); }
+function uxOgren(){ const el=$('#ogrenBody'); if(!el) return; const aka=uxAka(), daw=load('daw',null), my=daw?uxDawInfo(daw):null;
+  const others=UXDAW.filter(([k])=>k!==daw).map(([k])=>uxDawInfo(k));
+  el.innerHTML=`<div class="uxsearch"><input id="uxQ" class="search" type="search" placeholder="Ders, terim veya araç ara: sidechain, 808, kayıt…" autocomplete="off"><div id="uxRes" class="uxres" hidden></div></div>
+   <div class="uxsec">Temel</div>
+   <a class="uxhero" href="#dersler" style="--c:${aka.col}">${uxRing(aka.n/aka.N,aka.col,66)}<div><span class="uxtag">Herkes buradan başlar</span><b>Stüdyo Akademisi</b><small>7 seviye · ${aka.N} ders · ses, kablo, ekipman, kayıt, mix</small></div><span class="uxgo">Aç</span></a>
+   <div class="uxsec">DAW okulun</div>
+   ${my?`<a class="uxhero" href="${my.href}" style="--c:${my.col}">${uxRing(my.n/my.N,my.col,66)}<div><span class="uxtag">Senin programın</span><b>${my.name} Okulu</b><small>${my.n} / ${my.N} ders${my.next?' · sıradaki: '+my.next.t:''}</small></div><span class="uxgo">Aç</span></a>`:`<div class="uxpick"><b>Hangi programı kullanıyorsun?</b><span>Seçtiğin DAW okulu burada ve Bugün sayfasında öne çıkar.</span><div class="uxdaws">${UXDAW.map(([k,n,c])=>`<button data-daw="${k}" style="--c:${c}">${n}</button>`).join('')}</div><a href="#yazilim" class="uxlink">Karar veremiyorum, bana yardım et ›</a></div>`}
+   <div class="uxsec">${my?'Diğer DAW okulları':'Bütün DAW okulları'}</div>
+   <div class="uxlist">${(my?others:UXDAW.map(([k])=>uxDawInfo(k))).map(I=>`<a class="uxrow" href="${I.href}" style="--c:${I.col}"><i></i><div><span>${I.N} ders</span><b>${I.name}</b></div><small>%${Math.round(I.n/I.N*100)}</small><em>›</em></a>`).join('')}</div>
+   ${my?`<button class="uxlink" id="uxChg">Ana DAW'ımı değiştir</button>`:''}
+   <div class="uxsec">Başvuru</div>
+   <a class="uxrow" href="#sozluk" style="--c:#ffb300"><i></i><div><span>${TERMS.length} terim, resimli</span><b>Stüdyo Sözlüğü</b></div><em>›</em></a>`;
+  $('#uxQ').oninput=e=>uxSearch(e.target.value);
+  $$('#ogrenBody [data-daw]').forEach(b=>b.onclick=()=>{ save('daw',b.dataset.daw); uxOgren(); });
+  const ch=$('#uxChg'); if(ch) ch.onclick=()=>{ save('daw',null); uxOgren(); }; }
+/* Pratik merkezi */
+const UXPRAT=[['Kulak eğitimi','Her gün 5 dakika: profesyonel kulak böyle gelişir',['kulak','kulak2','kulak3']],['Simülatörler','Gerçek cihazlar ve programlar, sesli',['mixer','seskarti','daw','efekt','midi']],['Stüdyo kurulumu','Kablolar, mikrofonlar, oda ve ekipman',['kablo','davulmik','gitar','sahne','oda','kurulum','yazilim']],['Analiz ve sorun giderme','Kendi şarkını ölç, arızaları çöz',['mixdoktor','ariza']]];
+function renderLabs(){ const g=$('#labGroups'); if(!g) return; const T=k=>TILES.find(x=>x.k===k);
+  g.innerHTML=UXPRAT.map(([h,d,ks])=>`<div class="uxsec">${h}</div><p class="uxsub">${d}</p><div class="uxlist">${ks.map(k=>{ const t=T(k); return t?`<a class="uxrow" href="${t.href}" style="--c:${COL[t.c]}"><span class="uxic">${IC[t.k]||''}</span><div><b>${t.t}</b><span>${t.s}</span></div><em>›</em></a>`:''; }).join('')}</div>`).join('')
+   +`<div class="uxsec">DAW simülatörleri</div><p class="uxsub">Her DAW okulunun kendi uygulamalı simülatörü</p><div class="uxlist">${[['cbsim','Cubase Simülatörü','Arayüz, kısayollar, 15 görev','#4fc3ff'],...SCHORDER.filter(k=>SCH[k]&&SCH[k].sim).map(k=>['okul/'+k+'/sim',SCH[k].sim.title,SCH[k].name,SCH[k].col])].map(([h,t,s,c])=>`<a class="uxrow" href="#${h}" style="--c:${c}"><i></i><div><b>${t}</b><span>${s}</span></div><em>›</em></a>`).join('')}</div>`; }
+/* Başlangıç: hedef + DAW */
+function showOnb(){ const m=$('#onbModal'); m.hidden=false; document.body.style.overflow='hidden'; let goal=null;
+  const step1=()=>{ m.innerHTML=`<div class="gsheet onb" style="--c:#ff3fb8" role="dialog" aria-modal="true" aria-label="Hoş geldin"><div class="eyebrow">1 / 2 · NeonStüdyo Akademi</div><h2>Hoş geldin!</h2><p class="gdesc">Sana özel bir yol hazırlayalım. Önce adın ve hedefin:</p>
+    <label class="eyebrow" for="onbName">Adın (isteğe bağlı)</label><input class="search" id="onbName" maxlength="40" placeholder="Adın" value="${userName.replace(/"/g,'&quot;')}">
+    <div class="onbgrid">${ONB.map(([k,t,d,h,c])=>`<button data-k="${k}" data-h="${h}" style="--c:${c}"><b>${t}</b><span>${d}</span></button>`).join('')}</div><button class="cbx" id="onbSkip" style="justify-self:start">Şimdilik geç</button></div>`;
+    $$('#onbModal [data-k]').forEach(b=>b.onclick=()=>{ userName=$('#onbName').value.trim(); save('name',userName); goal=b.dataset; save('goal',goal.k); step2(); });
+    $('#onbSkip').onclick=()=>fin(null); };
+  const step2=()=>{ m.innerHTML=`<div class="gsheet onb" style="--c:#00eaff" role="dialog" aria-modal="true" aria-label="DAW seçimi"><div class="eyebrow">2 / 2</div><h2>Hangi programı kullanıyorsun?</h2><p class="gdesc">Seçtiğin programın okulu Bugün sayfanda öne çıkar. Sonradan Öğren sekmesinden değiştirebilirsin.</p>
+    <div class="uxdaws big">${UXDAW.map(([k,n,c])=>`<button data-daw="${k}" style="--c:${c}">${n}</button>`).join('')}<button data-daw="" style="--c:#a66bff">Henüz yok / bilmiyorum</button></div></div>`;
+    $$('#onbModal [data-daw]').forEach(b=>b.onclick=()=>{ const d=b.dataset.daw; save('daw',d||null); let h=goal&&goal.h; if(goal&&goal.k==='cubase'&&d&&d!=='cubase') h=d==='cubase'?'#cubase':'#okul/'+d; fin(h||(d?(d==='cubase'?'#cubase':'#okul/'+d):'#yazilim')); }); };
+  const fin=h=>{ save('onb',1); m.hidden=true; document.body.style.overflow=''; if(h) location.hash=h.slice(1); else uxHome(); };
+  step1(); }
+/* Başlık ve gezinme */
+function uxTitle(view,h){ const S=t=>t; let t='';
+  if(view==='dersler') t='Stüdyo Akademisi'; else if(view==='ders') t='Akademi'; else if(view==='sozluk') t='Stüdyo Sözlüğü';
+  else if(view==='cubase'||view==='cbders') t='Cubase Okulu'; else if(view==='cbsim') t='Cubase Simülatörü'; else if(view==='cbkey'||view==='cbkeys') t='Cubase · Kısayollar';
+  else if(SCHV.includes(view)){ const r=schParse(h), Sc=SCH[r.sid]; t=Sc?Sc.name+(view==='okul'?' Okulu':view==='okulsim'?' · Simülatör':view==='okulders'?'':' · Kısayollar'):''; }
+  else if(LABV.includes(view)) t=LABN[view]||(TILES.find(x=>x.k===view)||{}).t||'Pratik';
+  else if(view==='ariza') t='Arıza Vakaları';
+  const el=$('#pageT'); if(el) el.textContent=S(t); document.body.classList.toggle('subpage',!!t); }
+(function(){ const C=window.Capacitor; if(!C||!(C.isNativePlatform&&C.isNativePlatform())) return; const App=C.Plugins&&C.Plugins.App; if(!App||!App.addListener) return;
+  App.addListener('backButton',()=>{ const gm=$('#gModal'), om=$('#onbModal'); if(gm&&!gm.hidden){ gm.hidden=true; document.body.style.overflow=''; return; } if(om&&!om.hidden){ om.hidden=true; document.body.style.overflow=''; save('onb',1); return; }
+    if(curView==='home'){ App.exitApp(); return; } const bb=$('#backBtn'); if(bb&&!bb.hidden){ location.hash=bb.getAttribute('href').slice(1); } else location.hash='home'; }); })();
 
 /* ---------- init ---------- */
 renderCable(); renderFilters(); renderTerms(); earNew();
