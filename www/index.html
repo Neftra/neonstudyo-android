@@ -1197,7 +1197,7 @@ html[data-skin="pro"] .uxhero{background:#2c303b;box-shadow:none}
 try{if(localStorage.getItem("ns_skinv")!=="17"){localStorage.setItem("ns_skin",JSON.stringify("synth"));localStorage.setItem("ns_skinv","17")}document.documentElement.dataset.skin=JSON.parse(localStorage.getItem("ns_skin"))||"synth"}catch(e){document.documentElement.dataset.skin="synth"}
 (function(){
 "use strict";
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const $=s=>(/^#[\w-]+$/.test(s)?document.getElementById(s.slice(1)):document.querySelector(s)), $$=s=>[...document.querySelectorAll(s)];
 let curView='home';
 function setHTML(sel,html){ const e=typeof sel==='string'?$(sel):sel; if(e&&e._h!==html){ e._h=html; e.innerHTML=html; } }
 const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
@@ -1691,9 +1691,9 @@ function mxBind(){
     }
     mxSelect(id);
   });
-  svg.addEventListener('pointermove',e=>{ if(!drag) return; const o=CT[drag.id];
+  svg.addEventListener('pointermove',rafMove(e=>{ if(!drag) return; const o=CT[drag.id];
     if(o.kind==='knob'){ kSet(drag.id,drag.n0+(drag.y0-e.clientY)/160); } else { V[drag.id]=clamp((o.y2-svgY(e))/(o.y2-o.y1),0,1); }
-    mxChanged(drag.id); });
+    mxChanged(drag.id); }));
   const end=()=>{drag=null}; svg.addEventListener('pointerup',end); svg.addEventListener('pointercancel',end);
   svg.addEventListener('click',e=>{ const g=e.target.closest('.mxc'); if(!g) return; const id=g.dataset.id; if(CT[id].kind==='btn'){ V[id]=!V[id]; if(id==='c1_pfl'&&V[id]) mxFlag.pfl2=1; mxChanged(id); mxSheet(); } });
   svg.addEventListener('keydown',e=>{ const g=e.target.closest('.mxc'); if(!g) return; const id=g.dataset.id,o=CT[id];
@@ -3088,7 +3088,7 @@ function efSVG(){
 /* audio */
 let EF=null, efPlay=false, efSrcK='vox', efAB=false, efIRt=0;
 function efIR(c){
-  const type=efRtype, dec=V.e_decay, damp=V.e_damp, sr=c.sampleRate, len=Math.floor(sr*Math.min(6.5,dec*1.15+.05)), b=c.createBuffer(2,len,sr);
+  const type=efRtype, dec=V.e_decay, damp=V.e_damp, sr=c.sampleRate, len=Math.floor(sr*Math.min(3.5,dec*1.15+.05)), b=c.createBuffer(2,len,sr);
   const a=1-Math.exp(-2*Math.PI*damp/sr);
   for(let k=0;k<2;k++){ const d=b.getChannelData(k); let lp=0;
     for(let i=0;i<len;i++){ const t=i/sr, w=Math.random()*2-1; const aa=type===2?Math.min(1,a*1.6):a*(1-.5*Math.min(1,t/dec)); lp+=(w-lp)*aa; d[i]=lp*Math.exp(-6.9*t/dec)*(type===2?1:Math.min(1,t/.012)); }
@@ -3096,7 +3096,7 @@ function efIR(c){
   }
   return b;
 }
-function efSetIR(){ if(!EF) return; clearTimeout(efIRt); efIRt=setTimeout(()=>{ const c=EF.c, nc=c.createConvolver(); nc.buffer=efIR(c); EF.pre.connect(nc); nc.connect(EF.rWet); if(EF.conv){ try{EF.pre.disconnect(EF.conv)}catch(e){} EF.conv.disconnect(); } EF.conv=nc; drawRv(); },120); }
+function efSetIR(){ if(!EF) return; clearTimeout(efIRt); efIRt=setTimeout(()=>{ const c=EF.c, nc=c.createConvolver(); nc.buffer=efIR(c); EF.pre.connect(nc); nc.connect(EF.rWet); if(EF.conv){ try{EF.pre.disconnect(EF.conv)}catch(e){} EF.conv.disconnect(); } EF.conv=nc; EF._rl=true; efRevLink(!!V.e_on_r&&!efAB); drawRv(); },120); }
 function efAudio(){
   if(EF) return; const c=getCtx(), sr=c.sampleRate, st=stemsCopy();
   const vox=normBuf(cpBuf(syn('vox')),.5), gtr=cpBuf(syn('gtr')), drums=normBuf(st.drums,.5), bass=normBuf(st.bass,.5), keys=normBuf(st.keys,.5);
@@ -3134,7 +3134,7 @@ function efApply(now){
   set(EF.comp.threshold,V.e_thr); set(EF.comp.ratio,V.e_ratio); set(EF.comp.attack,V.e_att); set(EF.comp.release,V.e_rel); set(EF.comp.knee,V.e_knee); set(EF.mk.gain,dbToLin(V.e_mk));
   set(EF.cWet.gain,on('c')?1:0); set(EF.cDry.gain,on('c')?0:1);
   set(EF.dly.delayTime,efDelayTime()); set(EF.dFb.gain,V.e_fb); set(EF.dLP.frequency,V.e_hcut); set(EF.dWet.gain,on('d')?V.e_dmix:0);
-  set(EF.pre.delayTime,V.e_pre); set(EF.rWet.gain,on('r')?V.e_rmix*1.4:0);
+  set(EF.pre.delayTime,V.e_pre); efRevLink(on('r')); set(EF.rWet.gain,on('r')?V.e_rmix*1.4:0);
   set(EF.drv.gain,dbToLin(V.e_drive)); set(EF.lim.threshold,V.e_ceil-2); set(EF.ceilG.gain,dbToLin(V.e_ceil)*.92);
   set(EF.lWet.gain,on('l')?1:0); set(EF.lDry.gain,on('l')?0:1);
 }
@@ -3290,7 +3290,7 @@ function efBind(){
     if(o.kind==='knob'){ e.preventDefault(); g.setPointerCapture(e.pointerId); const now=Date.now(); if(g._lt&&now-g._lt<300){V[id]=o.def;efChanged(id);g._lt=0;efSelect(id);return;} g._lt=now; drag={id,y0:e.clientY,n0:kNorm(id)}; }
     efSelect(id);
   });
-  svg.addEventListener('pointermove',e=>{ if(!drag) return; kSet(drag.id,drag.n0+(drag.y0-e.clientY)/160); efChanged(drag.id); });
+  svg.addEventListener('pointermove',rafMove(e=>{ if(!drag) return; kSet(drag.id,drag.n0+(drag.y0-e.clientY)/160); efChanged(drag.id); }));
   const end=()=>{drag=null}; svg.addEventListener('pointerup',end); svg.addEventListener('pointercancel',end);
   svg.addEventListener('click',e=>{ const g=e.target.closest('.mxc'); if(!g) return; const id=g.dataset.id,o=CT[id];
     if(o.kind==='btn'){ V[id]=!V[id]; efChanged(id); if(id==='e_dsync') mxDraw('e_dtime'); efSheet(); }
@@ -3453,7 +3453,7 @@ function skStart(){ skAudio(); const c=getCtx(),t0=c.currentTime+.05; SKA.srcs=[
   const b=c.createBufferSource(); b.buffer=SKA.back; b.loop=true; b.connect(SKA.backG); b.start(t0); SKA.srcs.push(b);
   skPlay=true; skPlayUI(); }
 function stopSk(){ if(!skPlay) return; SKA.srcs.forEach(s=>{try{s.stop()}catch(e){} s.disconnect();}); skPlay=false; skPlayUI(); }
-function skPlayUI(){ const b=$('#skPlay'); b.classList.toggle('on',skPlay); b.textContent=skPlay?'■ Durdur':'▶ Kayda hazırlan'; }
+function skPlayUI(){ skIdleOK=false; const b=$('#skPlay'); b.classList.toggle('on',skPlay); b.textContent=skPlay?'■ Durdur':'▶ Kayda hazırlan'; }
 /* screen */
 const skPk=[-99,-99], skHold=[-99,-99], skBuf=new Float32Array(1024), skOk=[0,0];
 let skClipSeen=false, skClipFix=0, skLatSeen=false;
@@ -3473,6 +3473,7 @@ function skDiag(i,db){
 function skFrame(){
   requestAnimationFrame(skFrame);
   if(!skBuilt||curView!=='seskarti') return;
+  if(!skPlay){ if(skIdleOK) return; skIdleOK=true; } else { const _n=performance.now(); if(_n-skLastF<33) return; skLastF=_n; }
   const cv=$('#skc-daw'), dpr=Math.min(2,window.devicePixelRatio||1), w=cv.clientWidth, h=cv.clientHeight;
   if(cv.width!==Math.round(w*dpr)){cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);}
   const g=cv.getContext('2d'); g.setTransform(dpr,0,0,dpr,0,0); g.clearRect(0,0,w,h);
@@ -3497,7 +3498,7 @@ function skFrame(){
   g.font='9px JetBrains Mono, monospace'; g.fillStyle=SK.sw?'#ffb02e':'#5fe3ec';
   g.fillText(SK.sw?`DAW'dan dinleme açık · gecikme ≈ ${lat(SK.buf).toFixed(1)} ms (buffer ${SK.buf})`:'Direct monitor · giriş sesi 0 ms gecikmeyle kulaklıkta',12,h-6);
   if(skClipSeen&&skPlay&&[0,1].every(i=>skHold[i]<-3)) skClipFix=1;
-  if(skPlay&&Math.random()<.05) skTasks();
+  if(skPlay&&performance.now()-skTaskT>600){ skTaskT=performance.now(); skTasks(); }
 }
 /* interaction + tasks */
 let skSelId=null, skMini=false, skBuilt=false, skZoom=1;
@@ -3521,20 +3522,20 @@ function skSheet(){ const el=$('#skSheet'); el.classList.toggle('mini',skMini);
   const o=CT[skSelId], inf=INFO[o.info]; const val=o.kind==='jack'||o.kind==='led'?'':mxVal(skSelId);
   el.innerHTML=`<div class="row"><div class="eyebrow">UMX-2 · Ses kartı</div><div style="display:flex;gap:8px;align-items:center"><div class="val">${val}</div><button class="minib" id="skMin" aria-label="Açıklamayı aç/kapat">${skMini?'▴':'▾'}</button></div></div><h3>${inf[0]}</h3><p class="what">${inf[1]}</p><p class="tip">${inf[2]}</p>`;
   $('#skMin').onclick=()=>{skMini=!skMini;skSheet();}; }
-function skChanged(id){ mxDraw(id); skApply(); if(id===skSelId){const v=$('#skSheet .val');if(v)v.textContent=mxVal(id);} skTasks(); }
+function skChanged(id){ skIdleOK=false; mxDraw(id); skApply(); if(id===skSelId){const v=$('#skSheet .val');if(v)v.textContent=mxVal(id);} skTasks(); }
 function skBind(){
   const svg=$('#skSvg'); let drag=null;
   svg.addEventListener('pointerdown',e=>{ const gq=e.target.closest('.mxc'); if(!gq) return; const id=gq.dataset.id,o=CT[id];
     if(o.kind==='knob'){ e.preventDefault(); gq.setPointerCapture(e.pointerId); const now=Date.now(); if(gq._lt&&now-gq._lt<300){V[id]=o.def;skChanged(id);gq._lt=0;skSelect(id);return;} gq._lt=now; drag={id,y0:e.clientY,n0:kNorm(id)}; }
     skSelect(id); });
-  svg.addEventListener('pointermove',e=>{ if(!drag) return; kSet(drag.id,drag.n0+(drag.y0-e.clientY)/160); skChanged(drag.id); });
+  svg.addEventListener('pointermove',rafMove(e=>{ if(!drag) return; kSet(drag.id,drag.n0+(drag.y0-e.clientY)/160); skChanged(drag.id); }));
   const end=()=>{drag=null}; svg.addEventListener('pointerup',end); svg.addEventListener('pointercancel',end);
   svg.addEventListener('click',e=>{ const gq=e.target.closest('.mxc'); if(!gq) return; const id=gq.dataset.id; if(CT[id].kind==='btn'){ V[id]=!V[id]; skChanged(id); skSheet(); } });
   svg.addEventListener('keydown',e=>{ const gq=e.target.closest('.mxc'); if(!gq) return; const id=gq.dataset.id,o=CT[id];
     if((e.key==='Enter'||e.key===' ')&&o.kind==='btn'){e.preventDefault();V[id]=!V[id];skChanged(id);skSelect(id);return;}
     const d=e.key==='ArrowUp'||e.key==='ArrowRight'?.03:e.key==='ArrowDown'||e.key==='ArrowLeft'?-.03:0; if(d&&o.kind==='knob'){e.preventDefault();kSet(id,kNorm(id)+d);skChanged(id);skSelect(id);} });
 }
-function skSegs(){
+function skSegs(){ skIdleOK=false;
   [0,1].forEach(i=>{ $('#skIn'+i).innerHTML=Object.entries(PLUGS).map(([k,v])=>`<button data-k="${k}" aria-pressed="${SK.in[i]===k}">${v[0]}</button>`).join('');
     $$('#skIn'+i+' button').forEach(b=>b.onclick=()=>{ SK.in[i]=b.dataset.k; skSegs(); skPlugDraw(); skApply(); if(skPlay){stopSk();skStart();} skTasks(); }); });
   $('#skOut').innerHTML=[['phones','Kulaklık'],['spk','Hoparlör']].map(([k,n])=>`<button data-k="${k}" aria-pressed="${SK.out===k}">${n}</button>`).join('');
@@ -3544,8 +3545,8 @@ function skSegs(){
   $('#skSw').innerHTML=[[false,'Kapalı'],[true,'Açık']].map(([k,n])=>`<button data-k="${k}" aria-pressed="${SK.sw===k}">${n}</button>`).join('');
   $$('#skSw button').forEach(b=>b.onclick=()=>{SK.sw=b.dataset.k==='true';if(SK.sw&&SK.buf===1024)skFlag.latOn=1;skSegs();skApply();skTasks();});
 }
-function skZoomSet(z){ skZoom=clamp(z,1,2.4); $('#skWrap').style.width=(skZoom*100)+'%'; $('#skZoomVal').textContent=Math.round(skZoom*100)+'%'; }
-function skOpen(){
+function skZoomSet(z){ skIdleOK=false; skZoom=clamp(z,1,2.4); $('#skWrap').style.width=(skZoom*100)+'%'; $('#skZoomVal').textContent=Math.round(skZoom*100)+'%'; }
+function skOpen(){ skIdleOK=false;
   if(skBuilt) return; $('#skSvg').innerHTML=skSVG();
   const cv=$('#skc-daw'); cv.style.left=(SKD[0]/SKW*100)+'%'; cv.style.top=(SKD[1]/SKH*100)+'%'; cv.style.width=(SKD[2]/SKW*100)+'%'; cv.style.height=(SKD[3]/SKH*100)+'%';
   ['k_g0','k_g1','k_inst0','k_inst1','k_48','k_mix','k_mon','k_ph'].forEach(mxDraw); skPlugDraw(); skSegs(); skBind(); skBuilt=true;
@@ -7612,10 +7613,30 @@ function uxTitle(view,h){ const S=t=>t; let t='';
   App.addListener('backButton',()=>{ const gm=$('#gModal'), om=$('#onbModal'); if(gm&&!gm.hidden){ gm.hidden=true; document.body.style.overflow=''; return; } if(om&&!om.hidden){ om.hidden=true; document.body.style.overflow=''; save('onb',1); return; }
     if(curView==='home'){ App.exitApp(); return; } const bb=$('#backBtn'); if(bb&&!bb.hidden){ location.hash=bb.getAttribute('href').slice(1); } else location.hash='home'; }); })();
 
+/* ===== Performans v22 ===== */
+let skIdleOK=false, skLastF=0, skTaskT=0;
+function rafMove(fn){ let ev=null, q=false; return e=>{ ev=e; if(q) return; q=true; requestAnimationFrame(()=>{ q=false; const x=ev; ev=null; if(x) fn(x); }); }; }
+function synWorker(){
+  try{
+    if(!window.Worker||!window.Blob) throw 0;
+    const src=[`const D=${JSON.stringify(D)};const MEL=${JSON.stringify(MEL)};`, normBuf.toString(), stereoBuf.toString(), makeStems.toString(), makeTake.toString(), makeGuitar.toString(), makeArp.toString(), makeLoop.toString(),
+      `onmessage=function(e){var sr=e.data.sr;var c={sampleRate:sr,createBuffer:function(n,len,r){var d=[];for(var i=0;i<n;i++)d.push(new Float32Array(len));return {numberOfChannels:n,length:len,sampleRate:r,getChannelData:function(i){return d[i];},_d:d};}};
+       function pack(b){return {sr:b.sampleRate,d:b._d};}
+       e.data.keys.forEach(function(k){var r; if(k==='stems'){var s=makeStems(c);r={drums:pack(s.drums),bass:pack(s.bass),keys:pack(s.keys)};} else if(k==='vox') r=pack(makeTake(c,[1,1,1,1],new Set())); else if(k==='gtr') r=pack(makeGuitar(c)); else if(k==='arp') r=pack(makeArp(c)); else r=pack(makeLoop(c)); postMessage({k:k,r:r});});};`].join('\n');
+    const url=URL.createObjectURL(new Blob([src],{type:'text/javascript'})), w=new Worker(url);
+    const c=getCtx(), mk=p=>{ const b=c.createBuffer(p.d.length,p.d[0].length,p.sr); p.d.forEach((a,i)=>b.getChannelData(i).set(a)); return b; };
+    let left=5;
+    w.onmessage=e=>{ const {k,r}=e.data; try{ if(k==='loop'){ if(!LOOP) LOOP=mk(r); } else if(k==='stems'){ if(!SYN.stems) SYN.stems={drums:mk(r.drums),bass:mk(r.bass),keys:mk(r.keys)}; } else if(!SYN[k]) SYN[k]=mk(r); }catch(err){} if(--left<=0){ w.terminate(); URL.revokeObjectURL(url); } };
+    w.onerror=()=>{ try{ w.terminate(); }catch(e){} };
+    w.postMessage({sr:c.sampleRate,keys:['stems','vox','gtr','arp','loop']});
+  }catch(e){ warmSynth(); }
+}
+function efRevLink(on){ if(!EF||!EF.conv||EF._rl===on) return; EF._rl=on; try{ if(on) EF.pre.connect(EF.conv); else EF.pre.disconnect(EF.conv); }catch(e){} }
+
 /* ---------- init ---------- */
 renderCable(); renderFilters(); renderTerms(); earNew();
 window.addEventListener('hashchange',route); route();
-window.addEventListener('pointerdown',()=>setTimeout(warmSynth,250),{once:true});
+setTimeout(synWorker,400);
 requestAnimationFrame(mxFrame);
 requestAnimationFrame(dawFrame);
 })();
